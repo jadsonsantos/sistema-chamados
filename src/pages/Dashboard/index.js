@@ -2,7 +2,7 @@ import './SignIn.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const SignUp = () => {
+const Dashboard = () => {
   const [email, setEmail] = useState('')
   console.log(setEmail)
 
@@ -18,10 +18,10 @@ const SignUp = () => {
         <input type="submit" value="acessar" className="signin__button" />
       </form>
       <Link to="/register" className="signin__link">
-        Já possui uma conta? Faca login
+        Criar uma conta
       </Link>
     </section>
   )
 }
 
-export default SignUp
+export default Dashboard
