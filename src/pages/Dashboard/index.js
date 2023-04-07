@@ -1,4 +1,4 @@
-import './SignIn.scss'
+import './Dashboard.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 

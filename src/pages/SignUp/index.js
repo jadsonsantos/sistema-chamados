@@ -1,4 +1,4 @@
-import './SignIn.scss'
+import './SignUp.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -20,6 +20,7 @@ const SignUp = () => {
       <Link to="/register" className="signin__link">
         Já possui uma conta? Faca login
       </Link>
+<a>teste</a>
     </section>
   )
 }
