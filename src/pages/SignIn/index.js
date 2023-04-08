@@ -1,26 +1,43 @@
-import './SignIn.scss'
 import { useState } from 'react'
+import '../Form.scss'
+import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
 
 const SignIn = () => {
   const [email, setEmail] = useState('')
-  console.log(setEmail)
+  const [password, setPassword] = useState('')
 
   return (
-    <section className="signin">
-      <form className="signin__form">
-        <input
-          type="text"
-          placeholder="seu email"
-          value={email}
-          className="signin__button"
-        />
-        <input type="submit" value="acessar" className="signin__button" />
-      </form>
-      <Link to="/register" className="signin__link">
-        Criar uma conta
-      </Link>
-    </section>
+    <div className="container-center signin">
+      <div className="login">
+        <div className="login-area">
+          <img src={logo} alt="Logo do sistema de chamados" />
+        </div>
+
+        <form className="signin__form">
+          <h1>Entrar</h1>
+          <input
+            type="text"
+            placeholder="email@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="signin__input"
+          />
+          <input
+            type="password"
+            placeholder="********"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className="signin__button" type="submit">
+            Acessar
+          </button>
+        </form>
+        <Link className="signin__link" to="/register">
+          Criar uma conta
+        </Link>
+      </div>
+    </div>
   )
 }
 

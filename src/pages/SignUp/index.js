@@ -1,27 +1,48 @@
-import './SignUp.scss'
 import { useState } from 'react'
+import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
+import '../Form.scss'
 
-const SignUp = () => {
+export default function SignUp() {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  console.log(setEmail)
+  const [password, setPassword] = useState('')
 
   return (
-    <section className="signin">
-      <form className="signin__form">
-        <input
-          type="text"
-          placeholder="seu email"
-          value={email}
-          className="signin__button"
-        />
-        <input type="submit" value="acessar" className="signin__button" />
-      </form>
-      <Link to="/register" className="signin__link">
-        Já possui uma conta? Faca login
-      </Link>
-    </section>
+    <div className="container-center">
+      <div className="login">
+        <div className="login-area">
+          <img src={logo} alt="Logo do sistema de chamados" />
+        </div>
+
+        <form>
+          <h1>Nova conta</h1>
+          <input
+            type="text"
+            placeholder="Seu nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder="email@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type="password"
+            placeholder="********"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button type="submit">Cadastrar</button>
+        </form>
+
+        <Link to="/">Já possui uma conta? Faça login</Link>
+      </div>
+    </div>
   )
 }
-
-export default SignUp
