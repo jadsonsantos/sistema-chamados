@@ -1,7 +1,3 @@
-const useSignUp = () => {
-  const handleSubmit = () => {}
-
-  return { handleSubmit }
-}
+const useSignUp = () => {}
 
 export default useSignUp
