@@ -10,7 +10,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const { signUp, loadingAuth } = useContext(AuthContext)
 
-  async function handleSubmit(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     if (name !== '' && email !== '' && password !== '') {
