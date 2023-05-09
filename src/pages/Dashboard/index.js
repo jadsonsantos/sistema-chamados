@@ -1,6 +1,7 @@
 import './Dashboard.scss'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Header from '../../components/Header'
 
 const Dashboard = () => {
   const [email, setEmail] = useState('')
@@ -8,6 +9,7 @@ const Dashboard = () => {
 
   return (
     <section className="signin">
+      <Header />
       <form className="signin__form">
         <input
           type="text"
