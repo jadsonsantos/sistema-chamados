@@ -1,11 +1,21 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import '../Form.scss'
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/auth'
 
 const SignIn = () => {
+  const { signIn } = useContext(AuthContext)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  const handleSignIn = (e) => {
+    e.preventDefault()
+
+    if (email !== '' && password !== '') {
+      signIn(email, password)
+    }
+  }
 
   return (
     <div className="container-center signin">
@@ -14,7 +24,7 @@ const SignIn = () => {
           <img src={logo} alt="Logo do sistema de chamados" />
         </div>
 
-        <form className="signin__form">
+        <form className="signin__form" onSubmit={handleSignIn}>
           <h1>Entrar</h1>
           <input
             type="text"
