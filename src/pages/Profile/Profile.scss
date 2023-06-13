@@ -1,0 +1,60 @@
+.avatar {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 280px;
+
+  input {
+    display: none;
+  }
+
+  svg {
+    position: absolute;
+    z-index: 99;
+    opacity: 0.7;
+    transition: all .5s;
+
+    &:hover {
+      transform: scale(1.4);
+      opacity: 1;
+    }
+  }
+}
+
+.form {
+  label {
+    margin-bottom: 0.5em;
+    font-size: 1.4em;
+  }
+
+  input,
+  textarea,
+  select {
+    max-width: 600px;
+    margin-bottom: 1em;
+    padding: 0.7em;
+    border: 0;
+    border-radius: 5px;
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+  }
+
+  button {
+    max-width: 600px;
+  }
+}
+
+.logout-btn {
+  padding: 8px 20px;
+  border: 1px solid #121212;
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
