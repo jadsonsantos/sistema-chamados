@@ -24,12 +24,12 @@ const AuthProvider = ({ children }) => {
       .then(async (value) => {
         let uid = value.user.uid
         await setDoc(doc(db, 'users', uid), {
-          nome: name,
+          name: name,
           avatarUrl: null,
         }).then(() => {
           let data = {
             uid: uid,
-            nome: name,
+            name: name,
             email: value.user.email,
             avatarUrl: null,
           }
@@ -57,7 +57,15 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!user, user, signIn, signUp, loadingAuth }}
+      value={{
+        signed: !!user,
+        user,
+        signIn,
+        signUp,
+        loadingAuth,
+        storageUser,
+        setUser,
+      }}
     >
       {children}
     </AuthContext.Provider>
