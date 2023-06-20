@@ -1,18 +1,43 @@
 import { useState, useContext } from 'react'
 import { AuthContext } from '../../contexts/auth'
 import { toast } from 'react-toastify'
+import { doc, updateDoc } from 'firebase/firestore'
+import { db } from '../../services/firebase-connection'
+// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 const useProfile = () => {
-  const { user } = useContext(AuthContext)
+  const { user, setUser, storageUser } = useContext(AuthContext)
 
   const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl)
   const [imageAvatar, setImageAvatar] = useState(null)
   const [name, setName] = useState(user && user.name)
   const [email, setEmail] = useState(user && user.email)
 
+  const updateName = async () => {
+    const docRef = doc(db, 'users', user.id)
+    await updateDoc(docRef, {
+      name: name,
+    }).then(() => {
+      let data = {
+        ...user,
+        name: name,
+      }
+
+      setUser(data)
+      storageUser(data)
+      toast.success('Atualizado com sucesso')
+    })
+  }
+
+  const handleUpload = async () => {}
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert('teste')
+    if (imageAvatar === null && name !== '') {
+      updateName()
+    } else if (imageAvatar !== null && name !== '') {
+      handleUpload()
+    }
   }
 
   const handleFile = (e) => {
