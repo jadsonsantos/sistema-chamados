@@ -60,11 +60,11 @@ const AuthProvider = ({ children }) => {
       value={{
         signed: !!user,
         user,
+        setUser,
         signIn,
         signUp,
         loadingAuth,
         storageUser,
-        setUser,
       }}
     >
       {children}
