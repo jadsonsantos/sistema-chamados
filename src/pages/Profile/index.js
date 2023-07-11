@@ -8,7 +8,7 @@ import './Profile.scss'
 import useProfile from './useProfile'
 
 const Profile = () => {
-  const { setUser, storageUser } = useContext(AuthContext)
+  const { user, setUser, storageUser } = useContext(AuthContext)
   const {
     handleSubmit,
     handleFile,
@@ -21,15 +21,6 @@ const Profile = () => {
     email,
     setEmail,
   } = useProfile()
-
-  setEmail
-  setUser
-  storageUser
-  setAvatarUrl
-  imageAvatar
-  setImageAvatar
-
-  console.log(name)
 
   return (
     <div className="content__general">
