@@ -2,8 +2,8 @@ import { useState, useContext } from 'react'
 import { AuthContext } from '../../contexts/auth'
 import { toast } from 'react-toastify'
 import { doc, updateDoc } from 'firebase/firestore'
-import { db } from '../../services/firebase-connection'
-// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { db, storage } from '../../services/firebase-connection'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 const useProfile = () => {
   const { user, setUser, storageUser } = useContext(AuthContext)
@@ -29,13 +29,18 @@ const useProfile = () => {
     })
   }
 
-  const handleUpload = async () => {}
+  const handleUpload = async () => {
+    const currentUid = user.Uid
+    const uploadRef = ref(storage, `images/${currentUid}/${imageAvatar.name}`)
+    // const uploadTask =
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (imageAvatar === null && name !== '') {
       updateName()
     } else if (imageAvatar !== null && name !== '') {
+      // atualizar nome e foto
       handleUpload()
     }
   }
